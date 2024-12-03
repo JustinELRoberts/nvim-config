@@ -8,3 +8,5 @@ vim.g.mapleader=" "
 vim.g.maplocalleader = "\\"
 
 vim.opt.scrolloff = 10
+
+vim.wo.number = true
