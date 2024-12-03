@@ -6,6 +6,5 @@ return {
     renderMarkdown.setup({
 			file_types = { "markdown" },
 		})
-		vim.keymap.set("n", "mr", renderMarkdown.toggle, { desc = "Toggle markdown rendering" })
 	end,
 }
