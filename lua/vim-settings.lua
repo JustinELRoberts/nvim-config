@@ -9,4 +9,10 @@ vim.g.maplocalleader = "\\"
 
 vim.opt.scrolloff = 10
 
+-- Show line numbers
 vim.wo.number = true
+
+-- Keybinds to save/quit
+vim.keymap.set('n', '<leader>w', ':w<CR>')
+vim.keymap.set('n', '<leader>wq', ':wq<CR>')
+vim.keymap.set('n', '<leader>wqa', ':wqa<CR>')
