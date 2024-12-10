@@ -9,9 +9,9 @@ return {
     "BurntSushi/ripgrep",
   },
   config = function()
-    vim.keymap.set('n', '<leader>fe', ':Neotree focus filesystem left<CR>')
-    vim.keymap.set('n', '<leader>be', ':Neotree focus buffers left<CR>')
-    vim.keymap.set('n', '<leader>ge', ':Neotree focus git_status left<CR>')
+    vim.keymap.set('n', '<leader>fe', ':Neotree filesystem reveal left<CR>')
+    vim.keymap.set('n', '<leader>be', ':Neotree buffers reveal left<CR>')
+    vim.keymap.set('n', '<leader>ge', ':Neotree git_status reveal left<CR>')
     vim.keymap.set('n', '<leader>ce', ':Neotree close<CR>')
 
     require("neo-tree").setup({
