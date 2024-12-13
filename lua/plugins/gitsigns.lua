@@ -23,6 +23,9 @@ return {
     -- Open a git blame buffer
     vim.keymap.set("n", "<leader>gb", gitsigns.blame, {})
 
+    -- Open a buffer to view the git diff
+    vim.keymap.set("n", "<leader>gd", gitsigns.diffthis, {})
+
     -- Next and previous git hunk
     vim.keymap.set("n", "[g", gitsigns.next_hunk, {})
     vim.keymap.set("n", "]g", gitsigns.prev_hunk, {})
