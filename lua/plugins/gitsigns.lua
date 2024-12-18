@@ -27,7 +27,7 @@ return {
     vim.keymap.set("n", "<leader>gd", gitsigns.diffthis, {})
 
     -- Next and previous git hunk
-    vim.keymap.set("n", "[g", gitsigns.next_hunk, {})
-    vim.keymap.set("n", "]g", gitsigns.prev_hunk, {})
+    vim.keymap.set("n", "[g", gitsigns.prev_hunk, {})
+    vim.keymap.set("n", "]g", gitsigns.next_hunk, {})
   end
 }
