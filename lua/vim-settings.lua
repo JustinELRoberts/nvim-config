@@ -16,3 +16,8 @@ vim.wo.number = true
 vim.keymap.set('n', '<leader>w', ':w<CR>')
 vim.keymap.set('n', '<leader>wq', ':wq<CR>')
 vim.keymap.set('n', '<leader>wqa', ':wqa<CR>')
+
+-- Keybinds to execute some lua
+vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>')
+vim.keymap.set('n', '<leader>x', ':.lua<CR>')
+vim.keymap.set('v', '<leader>x', ':lua<CR>')
