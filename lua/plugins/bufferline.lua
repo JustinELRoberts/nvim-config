@@ -10,10 +10,5 @@ return {
         buffer_close_icon = '',
       }
     })
-    -- This isn't a bufferline specific keybind, but switching buffers is sufficiently related that it feels like a good place
-    vim.keymap.set('n', '[b', ':bp<CR>')
-    vim.keymap.set('n', ']b', ':bn<CR>')
-    vim.keymap.set('n', '<leader>bs', ':w|bd<CR>')
-    vim.keymap.set('n', '<leader>bd', ':bd!<CR>')
   end
 }

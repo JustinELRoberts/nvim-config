@@ -18,6 +18,7 @@ return {
 		vim.g.neominimap = {
 			layout = "split",
 			notification_level = vim.log.levels.OFF,
+      close_if_last_window = true
 		}
 	end,
 }
