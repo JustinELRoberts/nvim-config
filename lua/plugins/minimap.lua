@@ -15,28 +15,11 @@ return {
     { "<leader>mf",  "<cmd>Neominimap toggleFocus<cr>", desc = "Switch focus on minimap" },
   },
   init = function()
-    local is_float_window = function(winid)
-      return vim.api.nvim_win_get_config(winid).relative ~= ""
-    end
-
     vim.g.neominimap = {
-      layout = "split",
+      auto_enable = false,
+      layout = "float",
       notification_level = vim.log.levels.OFF,
       close_if_last_window = true,
-      -- Used to prevent opening on the start screen
-      tab_filter = function(tab_id)
-        local win_list = vim.api.nvim_tabpage_list_wins(tab_id)
-        local exclude_ft = { "alpha", "neominimap", "snacks_dashboard" }
-        for _, win_id in ipairs(win_list) do
-          if not is_float_window(win_id) then
-            local bufnr = vim.api.nvim_win_get_buf(win_id)
-            if not vim.tbl_contains(exclude_ft, vim.bo[bufnr].filetype) then
-              return true
-            end
-          end
-        end
-        return false
-      end,
     }
   end,
 }
