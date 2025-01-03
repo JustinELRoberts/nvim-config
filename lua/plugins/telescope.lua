@@ -15,7 +15,7 @@ return {
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Search active buffer contents' })
       vim.keymap.set('n', '<leader>fr', builtin.lsp_references, { desc = 'Find references to item under cursor' })
       -- Below is a custom finder found in ../telescope/multigrep.lua
-      require "telescope.multigrep".setup()
+      require("telescope.multigrep").setup()
 
       -- Search nvim config, packages, etc
       vim.keymap.set('n', '<leader>fv', function()
