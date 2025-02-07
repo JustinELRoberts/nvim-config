@@ -15,25 +15,36 @@ return {
     },
   },
   {
+    "lukas-reineke/lsp-format.nvim",
+    config = function()
+      require("lsp-format").setup({})
+    end
+  },
+  {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+      local lspformat = require("lsp-format")
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
+        on_attach = lspformat.on_attach
       })
       lspconfig.ts_ls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
+        on_attach = lspformat.on_attach
       })
       lspconfig.html.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
+        on_attach = lspformat.on_attach
       })
       lspconfig.rust_analyzer.setup {
-        filetypes = {"rust"},
+        filetypes = { "rust" },
         on_attach = function(client, bufnr)
           vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+          lspformat.on_attach(client, bufnr)
         end,
         settings = {
           ['rust_analyzer'] = {
@@ -41,6 +52,7 @@ return {
               allFeatures = true
             },
             checkOnSave = {
+              allFeatures = true,
               command = "clippy"
             },
           },
@@ -58,7 +70,7 @@ return {
       vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 
-      vim.diagnostic.config({ jump = { float = true }})
+      vim.diagnostic.config({ jump = { float = true } })
       vim.keymap.set('n', '[e', vim.diagnostic.goto_prev)
       vim.keymap.set('n', ']e', vim.diagnostic.goto_next)
     end,
