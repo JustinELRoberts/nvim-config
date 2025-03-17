@@ -4,7 +4,7 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
-vim.g.mapleader=" "
+vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 vim.opt.scrolloff = 10
@@ -22,3 +22,13 @@ vim.keymap.set('n', '<leader>wqa', ':wqa<CR>')
 vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>')
 vim.keymap.set('n', '<leader>x', ':.lua<CR>')
 vim.keymap.set('v', '<leader>x', ':lua<CR>')
+
+-- Keybinds for buffer management
+vim.keymap.set('n', '[b', ':bprev<CR>')
+vim.keymap.set('n', ']b', ':bnext<CR>')
+-- Delete the current buffer
+vim.keymap.set('n', '<leader>bd', ':bd<CR>')
+-- Delete all buffers
+vim.keymap.set('n', '<leader>ba', ':%bd<CR>')
+-- Delete all buffers except the currenly open one
+vim.keymap.set('n', '<leader>bo', ':%bd|edit#|bd#<CR>')
