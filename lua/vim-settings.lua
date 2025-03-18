@@ -32,3 +32,19 @@ vim.keymap.set('n', '<leader>bd', ':bd<CR>')
 vim.keymap.set('n', '<leader>ba', ':%bd<CR>')
 -- Delete all buffers except the currenly open one
 vim.keymap.set('n', '<leader>bo', ':%bd|edit#|bd#<CR>')
+
+-- Allow yank to clipboard on WSL
+if vim.fn.has("wsl") then
+  vim.g.clipboard = {
+    name = "clip.exe (Copy Only)",
+    copy = {
+      ["+"] = "/mnt/c/Windows/System32/clip.exe",
+      ["*"] = "/mnt/c/Windows/System32/clip.exe"
+    },
+    paste = {
+      ["+"] = "/mnt/c/Windows/System32/clip.exe",
+      ["*"] = "/mnt/c/Windows/System32/clip.exe"
+    },
+    cache_enabled = true
+  }
+end
