@@ -7,27 +7,40 @@ return {
       current_line_blame = true,
     })
 
-    -- If we are in visual mode, we will be staging only the hunk in our selection
-    vim.keymap.set("v", "<leader>gs", gitsigns.stage_hunk, {})
+    -- Stage the hunk that our cursor is currently in
+    vim.keymap.set("n", "<leader>gs", gitsigns.stage_hunk, {})
+    -- Stage all the hunks our selection intersects
+    vim.keymap.set('v', "<leader>gs", function()
+      gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+    end)
+    -- Stage entire buffer
+    vim.keymap.set({ "n", "v" }, "<leader>gS", gitsigns.stage_buffer, {})
 
-    -- If we are in normal mode, we will be staging/unstaging the entire buffer
-    vim.keymap.set("n", "<leader>gs", gitsigns.stage_buffer, {})
-    vim.keymap.set("n", "<leader>gr", gitsigns.reset_buffer_index, {})
+    -- Revert changes in the hunk our cursor is currently in (only if it is not staged)
+    vim.keymap.set("n", "<leader>gr", gitsigns.reset_hunk, {})
+    -- Revert changes in all hunks our selection intersects (and are not yet staged)
+    vim.keymap.set('v', "<leader>gr", function()
+      gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+    end)
+    -- Revert changes in all hunks in the buffer (that are not yet staged)
+    vim.keymap.set({ "n", "v" }, "<leader>gR", gitsigns.reset_buffer, {})
 
     -- Undo the last staged hunk
-    vim.keymap.set("n", "<leader>gu", gitsigns.undo_stage_hunk, {})
+    vim.keymap.set({ "n", "v" }, "<leader>gu", gitsigns.undo_stage_hunk, {})
 
-    -- Select the hunk we are inside of 
+    -- Select (highlight) the hunk we are inside of
     vim.keymap.set("n", "<leader>gh", gitsigns.select_hunk, {})
-
-    -- Open a git blame buffer
-    vim.keymap.set("n", "<leader>gb", gitsigns.blame, {})
 
     -- Open a buffer to view the git diff
     vim.keymap.set("n", "<leader>gd", gitsigns.diffthis, {})
+
+    -- Preview the changes made in the hunk under our cursor
+    vim.keymap.set("n", "<leader>gp", gitsigns.preview_hunk_inline, {})
 
     -- Next and previous git hunk
     vim.keymap.set("n", "[g", gitsigns.prev_hunk, {})
     vim.keymap.set("n", "]g", gitsigns.next_hunk, {})
   end
 }
+
+-- abc
