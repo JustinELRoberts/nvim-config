@@ -21,16 +21,6 @@ vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>')
 vim.keymap.set('n', '<leader>x', ':.lua<CR>')
 vim.keymap.set('v', '<leader>x', ':lua<CR>')
 
--- Keybinds for buffer management
-vim.keymap.set('n', '[b', ':bprev<CR>')
-vim.keymap.set('n', ']b', ':bnext<CR>')
--- Delete the current buffer
-vim.keymap.set('n', '<leader>bd', ':bd<CR>')
--- Delete all buffers
-vim.keymap.set('n', '<leader>ba', ':%bd<CR>')
--- Delete all buffers except the currenly open one
-vim.keymap.set('n', '<leader>bo', ':%bd|edit#|bd#<CR>')
-
 -- Allow yank to clipboard on WSL
 if vim.fn.has("wsl") then
   vim.g.clipboard = {

@@ -42,5 +42,3 @@ return {
     vim.keymap.set("n", "]g", gitsigns.next_hunk, {})
   end
 }
-
--- abc
