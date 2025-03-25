@@ -65,7 +65,6 @@ return {
           },
         }
       })
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, {})
       vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
