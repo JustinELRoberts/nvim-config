@@ -13,8 +13,9 @@ vim.opt.scrolloff = 10
 vim.wo.number = true
 vim.wo.relativenumber = true
 
--- Keybind to save/quit
+-- Keybinds to save/quit
 vim.keymap.set('n', '<leader>qq', ':wqa<CR>')
+vim.keymap.set('v', '<leader>qq', '<Esc><CR>:wqa<CR>')
 
 -- Keybinds to execute some lua
 vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>')
