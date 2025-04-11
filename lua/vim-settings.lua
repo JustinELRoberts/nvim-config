@@ -13,6 +13,9 @@ vim.opt.scrolloff = 10
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+-- Highlight the selected row
+vim.opt.cursorline = true
+
 -- Keybinds to save/quit
 vim.keymap.set('n', '<leader>qq', ':wqa<CR>')
 vim.keymap.set('v', '<leader>qq', '<Esc><CR>:wqa<CR>')
