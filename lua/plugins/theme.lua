@@ -3,18 +3,28 @@ return {
   config = function()
     -- Default options:
     require("kanagawa").setup({
-      compile = false, -- enable compiling the colorscheme
-      undercurl = false, -- enable undercurls
+      compile = false,
+      undercurl = false,
       commentStyle = { italic = true },
       keywordStyle = { italic = true },
       statementStyle = { bold = true },
-      transparent = false, -- do not set background color
-      dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-      terminalColors = true, -- define vim.g.terminal_color_{0,17}
+      transparent = false,
+      dimInactive = false,
+      terminalColors = true,
       theme = "wave",
-      background = {      -- map the value of 'background' option to a theme
-        dark = "dragon",    -- try "dragon" !
+      background = {
+        dark = "dragon",
       },
+      overrides = function(colors)
+        local theme = colors.theme
+        return {
+          -- Dark popup for autocomplete etc
+          Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
+          PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+          PmenuSbar = { bg = theme.ui.bg_m1 },
+          PmenuThumb = { bg = theme.ui.bg_p2 },
+        }
+      end,
     })
 
     -- setup must be called before loading
