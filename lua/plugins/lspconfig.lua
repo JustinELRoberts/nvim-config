@@ -80,7 +80,7 @@ return {
       vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 
-      vim.diagnostic.config({ virtual_lines = true })
+      vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = true })
     end,
   }
 }
