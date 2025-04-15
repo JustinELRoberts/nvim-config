@@ -24,11 +24,12 @@ return {
       nerd_font_variant = 'mono'
     },
 
+    -- Styling the LSP menu
     completion = {
       menu = {
         auto_show = true,
-        border = "rounded",
-        winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+        winhighlight = "Normal:NormalFloat",
+
         -- nvim-cmp style menu
         draw = {
           columns = {
@@ -39,7 +40,6 @@ return {
       },
       documentation = {
         auto_show = true,
-        window = { border = "rounded" },
       },
     },
 
