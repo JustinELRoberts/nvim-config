@@ -1,12 +1,12 @@
 return {
   'saghen/blink.cmp',
-
   version = '1.*',
+  dependencies = { "onsails/lspkind.nvim", "nvim-tree/nvim-web-devicons" },
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
-    -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
+    -- 'defpult' (recommended) for mappings similar to built-in completions (C-y to accept)
     -- 'super-tab' for mappings similar to vscode (tab to accept)
     -- 'enter' for enter to accept
     -- 'none' for no mappings
@@ -24,8 +24,24 @@ return {
       nerd_font_variant = 'mono'
     },
 
-    -- Always show documentation for an autocomplete item (if it exists)
-    completion = { documentation = { auto_show = true } },
+    completion = {
+      menu = {
+        auto_show = true,
+        border = "rounded",
+        winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+        -- nvim-cmp style menu
+        draw = {
+          columns = {
+            { "label",     "label_description", gap = 1 },
+            { "kind_icon", "kind",              gap = 1 },
+          },
+        },
+      },
+      documentation = {
+        auto_show = true,
+        window = { border = "rounded" },
+      },
+    },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`

@@ -99,6 +99,11 @@ return {
       vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, {})
       vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+      vim.keymap.set('n', 'K', function()
+        vim.lsp.buf.hover({
+          border = 'rounded',
+        })
+      end)
 
       vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = true })
     end,
